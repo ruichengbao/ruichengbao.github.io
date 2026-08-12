@@ -25,9 +25,9 @@ const firstPassageControlBudget: Publication = {
   note: "Preprint",
   summary: {
     en:
-      "We develop a new framework for first-passage time response, yielding the beautiful and universal formulas shown in the homepage portrait and a physical decomposition into linear upstream, linear downstream, and nonlinear contributions. As illustrated in a protein-folding network, nonlinear effect vanishes when the perturbed edge is a bottleneck but strongly suppresses the finite-perturbation response otherwise. The framework also defines dynamical shortcuts in complex networks and resolves a recently proposed paradox.",
+      "We derive universal response bounds for first-passage kinetics, turning microscopic rate perturbations into general control rules for completion times and design principles for biochemical networks. Kinetic proofreading provides a central application: the theory shows how the checkpoint number limits discrimination and reveals the accompanying sensitivity to substrate concentration.",
     zh:
-      "我们建立了平均首达时间响应的新框架，得到主页人物插图中两个漂亮且普适的公式，并将响应分解为线性上游、线性下游和非线性三部分贡献。正如在蛋白质折叠网络中展示的，当扰动边是瓶颈时，非线性屏蔽消失；反之，它会显著压制有限扰动响应。该框架还严格定义了复杂网络中的动力学捷径，以此澄清了近期提出的一个悖论。",
+      "我们推导了首达动力学的普适响应界限，将微观速率扰动转化为控制完成时间的一般规则，并由此为生化网络提供设计原则。以动力学校对为重要应用，我们进一步揭示了校验点数量如何限制判别能力，以及这种判别所伴随的底物浓度敏感性变化。",
   },
 };
 
@@ -55,9 +55,9 @@ const exactFirstPassageResponse: Publication = {
   note: "Preprint",
   summary: {
     en:
-      "We introduce a new framework for mean first-passage-time response and derive the beautiful and universal response formulas displayed in the portrait on the homepage. These relations clearly expose the physical mechanism of MFPT response and decompose the exact response into linear upstream, linear downstream, and nonlinear contributions. In a biologically motivated protein-folding network, we show that nonlinear screening vanishes when the perturbed edge is the bottleneck, but can become strong away from the bottleneck and suppress the finite response.",
+      "We develop a new framework for first-passage time response, yielding the beautiful and universal formulas shown in the homepage portrait and a physical decomposition into linear upstream, linear downstream, and nonlinear contributions. As illustrated in a protein-folding network, nonlinear effect vanishes when the perturbed edge is a bottleneck but strongly suppresses the finite-perturbation response otherwise. The framework also defines dynamical shortcuts in complex networks and resolves a recently proposed paradox.",
     zh:
-      "我们提出了处理平均首达时间响应的全新框架，并推导出了展示在主页人物插图中的两个漂亮且普适的响应公式。这些公式清晰地揭示了平均首达时间响应的物理机制，并将响应分解为线性上游、线性下游和非线性三部分贡献。我们还将理论应用于一个具有生物意义的蛋白质折叠网络：当扰动边是瓶颈时，非线性屏蔽消失；当它不是瓶颈时，非线性效应可以很强，从而显著压制有限扰动响应。此外，我们的框架为复杂网络中的动力学捷径提供了清晰且严格的定义，澄清了近期提出的一个悖论。",
+      "我们建立了平均首达时间响应的新框架，得到主页插图中两个漂亮且普适的公式，并将响应分解为线性上游、线性下游和非线性三部分贡献。正如在蛋白质折叠网络中展示的，当扰动边是瓶颈时，非线性屏蔽消失；反之，它会显著压制有限扰动响应。该框架还严格定义了复杂网络中的动力学捷径，以此澄清了近期提出的一个悖论。",
   },
 };
 
