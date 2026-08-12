@@ -16,6 +16,51 @@ type Publication = {
   summary?: LocalizedText;
 };
 
+const firstPassageControlBudget: Publication = {
+  year: "2026",
+  title: "A Universal Control Budget for First-Passage Kinetics",
+  authors: "Shiling Liang* & Ruicheng Bao*",
+  venue: "arXiv:2608.06368",
+  href: "https://arxiv.org/abs/2608.06368",
+  note: "Preprint",
+  summary: {
+    en:
+      "We develop a new framework for first-passage time response, yielding the beautiful and universal formulas shown in the homepage portrait and a physical decomposition into linear upstream, linear downstream, and nonlinear contributions. As illustrated in a protein-folding network, nonlinear effect vanishes when the perturbed edge is a bottleneck but strongly suppresses the finite-perturbation response otherwise. The framework also defines dynamical shortcuts in complex networks and resolves a recently proposed paradox.",
+    zh:
+      "我们建立了平均首达时间响应的新框架，得到主页人物插图中两个漂亮且普适的公式，并将响应分解为线性上游、线性下游和非线性三部分贡献。正如在蛋白质折叠网络中展示的，当扰动边是瓶颈时，非线性屏蔽消失；反之，它会显著压制有限扰动响应。该框架还严格定义了复杂网络中的动力学捷径，以此澄清了近期提出的一个悖论。",
+  },
+};
+
+const entanglementMpemba: Publication = {
+  year: "2026",
+  title: "Entanglement Mpemba Effect",
+  authors: "Ruicheng Bao* & Yue Liu*",
+  venue: "arXiv:2608.07465",
+  href: "https://arxiv.org/abs/2608.07465",
+  note: "Preprint",
+  summary: {
+    en:
+      "We introduce a new physical phenomenon, the entanglement Mpemba effect: A less entangled initial state, even a product state, can overtake a more entangled one and reach a highly entangled target steady state, such as a GHZ state, earlier. This turns initial-state selection into a practical route to faster entangled-state preparation. We further show that reversal of the deterministic LOCC-reachability preorder provides a measure-independent certificate of reversed entanglement order across all entanglement monotones.",
+    zh:
+      "我们提出了一种全新的物理现象——纠缠 Mpemba 效应。在相同的耗散动力学下，纠缠较少的初态，甚至乘积态，可以反超纠缠较多的初态，并更快到达 GHZ 态等高纠缠目标稳态。这使初态选择成为加速高纠缠态制备的实用途径。我们还证明，确定性 LOCC 可达预序的反转能够为所有纠缠单调量共同的序反转提供一个与度量选择无关的充分判据。",
+  },
+};
+
+const exactFirstPassageResponse: Publication = {
+  year: "2026",
+  title: "Exact First-Passage Time Response Theory from Steady-State Response",
+  authors: "Ruicheng Bao* & Shiling Liang*",
+  venue: "arXiv:2608.11202",
+  href: "https://arxiv.org/abs/2608.11202",
+  note: "Preprint",
+  summary: {
+    en:
+      "We introduce a new framework for mean first-passage-time response and derive the beautiful and universal response formulas displayed in the portrait on the homepage. These relations clearly expose the physical mechanism of MFPT response and decompose the exact response into linear upstream, linear downstream, and nonlinear contributions. In a biologically motivated protein-folding network, we show that nonlinear screening vanishes when the perturbed edge is the bottleneck, but can become strong away from the bottleneck and suppress the finite response.",
+    zh:
+      "我们提出了处理平均首达时间响应的全新框架，并推导出了展示在主页人物插图中的两个漂亮且普适的响应公式。这些公式清晰地揭示了平均首达时间响应的物理机制，并将响应分解为线性上游、线性下游和非线性三部分贡献。我们还将理论应用于一个具有生物意义的蛋白质折叠网络：当扰动边是瓶颈时，非线性屏蔽消失；当它不是瓶颈时，非线性效应可以很强，从而显著压制有限扰动响应。此外，我们的框架为复杂网络中的动力学捷径提供了清晰且严格的定义，澄清了近期提出的一个悖论。",
+  },
+};
+
 const extremeFirstPassage: Publication = {
   year: "2026",
   title: "Extreme First-Passage Time of Many Interacting Particles",
@@ -186,6 +231,9 @@ const informationEngine: Publication = {
 };
 
 const selectedIndependent = [
+  exactFirstPassageResponse,
+  entanglementMpemba,
+  firstPassageControlBudget,
   extremeFirstPassage,
   optimalControl,
   initialStateTypicality,
@@ -195,6 +243,9 @@ const selectedIndependent = [
 const selectedSupervised = [measuringIrreversibility, temporaryReset, timescaleTradeoff, maxwellDemon];
 
 const independentPublications = [
+  exactFirstPassageResponse,
+  entanglementMpemba,
+  firstPassageControlBudget,
   extremeFirstPassage,
   optimalControl,
   initialStateTypicality,
