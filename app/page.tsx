@@ -54,6 +54,7 @@ const exactFirstPassageResponse: Publication = {
   venue: "arXiv:2608.11202",
   href: "https://arxiv.org/abs/2608.11202",
   note: "Preprint",
+  image: "./images/fpt-response.png",
   summary: {
     en:
       "We develop a new framework for first-passage time response, yielding the beautiful and universal formulas shown in the homepage portrait and a physical decomposition into linear upstream, linear downstream, and nonlinear contributions. As illustrated in a protein-folding network, nonlinear effect vanishes when the perturbed edge is a bottleneck but strongly suppresses the finite-perturbation response otherwise. The framework also defines dynamical shortcuts in complex networks and resolves a recently proposed paradox.",
@@ -69,7 +70,6 @@ const extremeFirstPassage: Publication = {
   venue: "arXiv:2607.22528",
   href: "https://arxiv.org/abs/2607.22528",
   note: "Preprint",
-  image: "./images/fpt-response.png",
   summary: {
     en: "I tackle a notoriously difficult correlated extreme first-passage problem and build a general theory for interacting searchers. The framework reveals universal large-N acceleration classes—from the familiar 1/ln N law to sharp interaction-driven limits—where earlier theory was restricted to independent particles.",
     zh: "我处理了一个公认困难的关联极值首达问题，并建立了适用于一般相互作用搜索者的理论框架。该框架揭示了大 N 极限下从经典 1/ln N 标度到相互作用驱动极限的普适加速规律，而此前理论主要局限于独立粒子。",
