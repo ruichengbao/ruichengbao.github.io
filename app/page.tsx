@@ -13,6 +13,7 @@ type Publication = {
   venue: string;
   href: string;
   note?: string;
+  image?: string;
   summary?: LocalizedText;
 };
 
@@ -68,6 +69,7 @@ const extremeFirstPassage: Publication = {
   venue: "arXiv:2607.22528",
   href: "https://arxiv.org/abs/2607.22528",
   note: "Preprint",
+  image: "./images/fpt-response.png",
   summary: {
     en: "I tackle a notoriously difficult correlated extreme first-passage problem and build a general theory for interacting searchers. The framework reveals universal large-N acceleration classes—from the familiar 1/ln N law to sharp interaction-driven limits—where earlier theory was restricted to independent particles.",
     zh: "我处理了一个公认困难的关联极值首达问题，并建立了适用于一般相互作用搜索者的理论框架。该框架揭示了大 N 极限下从经典 1/ln N 标度到相互作用驱动极限的普适加速规律，而此前理论主要局限于独立粒子。",
@@ -523,8 +525,25 @@ function PublicationList({
               {publication.note ? <span> · {publication.note}</span> : null}
             </p>
             {showSummary && publication.summary ? (
-              <p className="publication-summary">{publication.summary[language]}</p>
-            ) : null}
+            publication.image ? (
+              <div className="publication-summary-with-image">
+                <img
+                  className="publication-summary-image"
+                  src={publication.image}
+                  alt={publication.title}
+                  loading="lazy"
+                />
+          
+                <p className="publication-summary">
+                  {publication.summary[language]}
+                </p>
+              </div>
+            ) : (
+              <p className="publication-summary">
+                {publication.summary[language]}
+              </p>
+            )
+          ) : null}
           </div>
         </li>
       ))}
