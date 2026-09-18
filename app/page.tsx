@@ -794,7 +794,7 @@ export default function Home() {
             <div className="page-title-aside">
               <p>{t.cvLead}</p>
               <div className="cv-actions">
-                <a className="download-button" href="./cv/Ruicheng_Bao_CV.pdf" download>
+                <a className="download-button" href="./cv/Ruicheng_Bao_CV.pdf" target="_blank" rel="noopener noreferrer">
                   {t.downloadPdf} <span aria-hidden="true">↓</span>
                 </a>
                 <a className="source-link" href="./cv/Ruicheng_Bao_CV.tex" download>
