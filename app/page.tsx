@@ -232,6 +232,25 @@ const informationEngine: Publication = {
   note: "Co-first authors",
 };
 
+const underdampedFRR: Publication = {
+  year: "2026",
+  title: "Exact Fluctuation-Response Relations for Underdamped Langevin Dynamics",
+  authors: "Tan Van Vu, Van Tuan Vo, Ruicheng Bao & Keiji Saito",
+  venue: "arXiv:2608.20013",
+  href: "https://arxiv.org/abs/2608.20013",
+  note: "Preprint",
+};
+
+const CPL_response: Publication = {
+  year: "2026",
+  title: "Exact Finite Response of Higher-Order Statistics in Nonequilibrium Networks",
+  authors: "Ruicheng Bao & Shiling Liang",
+  venue: "Chinese Physics Letters (Invited)",
+  href: "https://iopscience.iop.org/article/10.1088/0256-307X/43/10/100002/meta",
+  note: "Invited paper",
+};
+
+
 const selectedIndependent = [
   exactFirstPassageResponse,
   entanglementMpemba,
@@ -246,6 +265,8 @@ const selectedSupervised = [measuringIrreversibility, temporaryReset, timescaleT
 
 const independentPublications = [
   exactFirstPassageResponse,
+  underdampedFRR,
+  CPL_response,
   entanglementMpemba,
   firstPassageControlBudget,
   extremeFirstPassage,
