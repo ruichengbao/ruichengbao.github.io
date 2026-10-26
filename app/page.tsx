@@ -294,6 +294,14 @@ const allPublications = [...independentPublications, ...supervisedPublications].
 );
 
 const talks = [
+    {
+    typeEn: "Invited seminars",
+    typeZh: "邀请报告",
+    title: "Exact nonlinear response theory from first-passage geometry",
+    venueEn: "Quan group (Peking University), Cui group (CUHK-Shenzhen) and Xia group (SUSTech), Beijing and Shenzhen, China (Sep, 2026)",
+    venueZh: "全海涛课题组(北京大学), 崔冰宇组(港中文深圳), 夏秀杨组(南方科技大学)",
+    date: "Sep 2026",
+  },
   {
     typeEn: "Lightning talk",
     typeZh: "轻型报告",
