@@ -47,7 +47,7 @@ const talks: Talk[] = [{
     en: "Jian Li is a PhD student at the Center for Theoretical Physics of the Polish Academy of Sciences, supervised by Patryk Lipka-Bartosik. Li studies quantum thermodynamics, quantum resource theory, and the foundations of quantum mechanics.",
     zh: "李剑是波兰科学院理论物理研究中心的博士研究生，师从 Patryk Lipka-Bartosik。主要研究方向包括量子热力学、量子资源理论和量子力学基础问题。",
   },
-  poster: { pdf: "./rt-01-jian-li.pdf?v=1600", preview: "./rt-01-jian-li.webp?v=1600" },
+  poster: { pdf: "./rt-01-jian-li.pdf?v=1600-no1", preview: "./rt-01-jian-li.webp?v=1600-no1" },
   meeting: {
     platform: { en: "Tencent Meeting", zh: "腾讯会议" },
     id: "867-857-958", url: "https://meeting.tencent.com/dm/60TWV23RhwBk?meeting_open_type=1&source=1",
