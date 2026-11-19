@@ -27,7 +27,7 @@ const spyc = {
 const talks: Talk[] = [{
   id: "rt-01-jian-li",
   date: "2026-12-02",
-  startsAt: "2026-12-02T20:00:00+08:00",
+  startsAt: "2026-12-02T16:00:00+08:00",
   title: { en: "What Does It Cost to Prepare a Quantum State?", zh: "制备一个量子态，要付出什么代价？" },
   speaker: { en: "Jian Li", zh: "李剑" },
   affiliation: { en: "Center for Theoretical Physics of the Polish Academy of Sciences", zh: "波兰科学院理论物理研究中心" },
@@ -47,7 +47,7 @@ const talks: Talk[] = [{
     en: "Jian Li is a PhD student at the Center for Theoretical Physics of the Polish Academy of Sciences, supervised by Patryk Lipka-Bartosik. Li studies quantum thermodynamics, quantum resource theory, and the foundations of quantum mechanics.",
     zh: "李剑是波兰科学院理论物理研究中心的博士研究生，师从 Patryk Lipka-Bartosik。主要研究方向包括量子热力学、量子资源理论和量子力学基础问题。",
   },
-  poster: { pdf: "./rt-01-jian-li.pdf", preview: "./rt-01-jian-li.webp" },
+  poster: { pdf: "./rt-01-jian-li.pdf?v=1600", preview: "./rt-01-jian-li.webp?v=1600" },
   meeting: {
     platform: { en: "Tencent Meeting", zh: "腾讯会议" },
     id: "867-857-958", url: "https://meeting.tencent.com/dm/60TWV23RhwBk?meeting_open_type=1&source=1",
