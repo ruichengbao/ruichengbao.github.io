@@ -85,7 +85,7 @@ a {
   gap: 38px;
 }
 
-.nav button,
+.nav a,
 .language-toggle {
   position: relative;
   padding: 8px 0;
@@ -97,7 +97,11 @@ a {
   letter-spacing: 0.02em;
 }
 
-.nav button::after {
+.nav a {
+  text-decoration: none;
+}
+
+.nav a::after {
   position: absolute;
   right: 0;
   bottom: 1px;
@@ -110,13 +114,13 @@ a {
   transition: 180ms ease;
 }
 
-.nav button:hover,
-.nav button.active,
+.nav a:hover,
+.nav a.active,
 .language-toggle:hover {
   color: var(--ink);
 }
 
-.nav button.active::after {
+.nav a.active::after {
   opacity: 1;
   transform: scaleX(1);
 }
@@ -667,6 +671,7 @@ p.event-title {
     grid-template-columns: 1fr auto;
     min-height: 76px;
     padding: 12px 20px;
+    backdrop-filter: none;
   }
 
   .nav {
@@ -676,16 +681,20 @@ p.event-title {
     left: 0;
     z-index: 30;
     justify-content: space-around;
-    gap: 6px;
-    padding: 10px 12px 12px;
+    gap: 2px;
+    padding: 8px 4px max(8px, env(safe-area-inset-bottom));
     border-top: 1px solid var(--line);
     background: color-mix(in srgb, var(--paper) 95%, transparent);
     backdrop-filter: blur(18px);
   }
 
-  .nav button {
-    padding: 8px 5px;
+  .nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 6px 2px;
     font-size: 13px;
+    letter-spacing: 0;
   }
 
   .language-toggle {

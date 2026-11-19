@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Seminars from "./Seminars";
 
 type Language = "en" | "zh";
-type View = "about" | "publications" | "talks" | "cv";
+type View = "about" | "publications" | "talks" | "seminars" | "cv";
 type LocalizedText = { en: string; zh: string };
 
 type Publication = {
@@ -402,7 +403,7 @@ const posters = [
 
 const copy = {
   en: {
-    nav: { about: "About", publications: "Publications", talks: "Presentations", cv: "CV" },
+    nav: { about: "About", publications: "Publications", talks: "Presentations", seminars: "Seminars", cv: "CV" },
     location: "Department of Physics, The University of Tokyo",
     eyebrow: "Randomness · Timescale · Irreversibility · Information",
     hero: "I study the physics of randomness and timescales.",
@@ -463,7 +464,7 @@ const copy = {
     language: "中文",
   },
   zh: {
-    nav: { about: "关于我", publications: "论文", talks: "学术展示", cv: "简历" },
+    nav: { about: "关于我", publications: "论文", talks: "学术展示", seminars: "研讨会", cv: "简历" },
     location: "东京大学物理系",
     eyebrow: "随机性 · 时间尺度 · 不可逆性 · 信息",
     hero: "我研究随机性与时间尺度背后的物理。",
@@ -580,18 +581,68 @@ function PublicationList({
   );
 }
 
+const isSeminarPath = (path: string) => /\/seminars(?:\/index\.html|\/)?$/.test(path);
+
+function readView(): View {
+  if (isSeminarPath(window.location.pathname)) return "seminars";
+  const hash = window.location.hash.slice(1);
+  return hash === "publications" || hash === "talks" || hash === "cv" ? hash : "about";
+}
+
+function readLanguage(): Language {
+  return new URLSearchParams(window.location.search).get("lang") === "zh" ? "zh" : "en";
+}
+
+function viewHref(view: View, language: Language, fromSeminars: boolean) {
+  const root = fromSeminars ? "../" : "./";
+  const path = view === "seminars" ? root + "seminars/" : root;
+  const section = view === "about" || view === "seminars" ? "" : "#" + view;
+  return path + (language === "zh" ? "?lang=zh" : "") + section;
+}
+
 export default function Home() {
-  const [language, setLanguage] = useState<Language>("en");
-  const [view, setView] = useState<View>("about");
+  // Pages mounts into #root. Keep the default first render for server-rendered hosts.
+  const pagesClient = typeof document !== "undefined" && !!document.getElementById("root");
+  const [language, setLanguage] = useState<Language>(() => pagesClient ? readLanguage() : "en");
+  const [view, setView] = useState<View>(() => pagesClient ? readView() : "about");
   const t = copy[language];
 
   useEffect(() => {
+    function syncLocation() {
+      setView(readView());
+      setLanguage(readLanguage());
+    }
+    syncLocation();
+    window.addEventListener("popstate", syncLocation);
+    window.addEventListener("hashchange", syncLocation);
+    return () => {
+      window.removeEventListener("popstate", syncLocation);
+      window.removeEventListener("hashchange", syncLocation);
+    };
+  }, []);
+
+  useEffect(() => {
     document.documentElement.lang = language === "en" ? "en" : "zh-CN";
-  }, [language]);
+    document.title = view === "seminars"
+      ? (language === "zh" ? "研究轨迹 | Ruicheng Bao" : "Research Trajectories | Ruicheng Bao")
+      : "Ruicheng Bao | Statistical Physics";
+  }, [language, view]);
 
   function changeView(next: View) {
+    if (next !== view) {
+      window.history.pushState(null, "", viewHref(next, language, isSeminarPath(window.location.pathname)));
+    }
     setView(next);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function changeLanguage() {
+    const next = language === "en" ? "zh" : "en";
+    const url = new URL(window.location.href);
+    if (next === "zh") url.searchParams.set("lang", "zh");
+    else url.searchParams.delete("lang");
+    window.history.replaceState(null, "", url);
+    setLanguage(next);
   }
 
   return (
@@ -603,20 +654,25 @@ export default function Home() {
 
         <nav className="nav" aria-label="Primary navigation">
           {(Object.keys(t.nav) as View[]).map((item) => (
-            <button
+            <a
               key={item}
-              onClick={() => changeView(item)}
+              href={viewHref(item, language, view === "seminars")}
+              onClick={(event) => {
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+                event.preventDefault();
+                changeView(item);
+              }}
               className={view === item ? "active" : ""}
               aria-current={view === item ? "page" : undefined}
             >
               {t.nav[item]}
-            </button>
+            </a>
           ))}
         </nav>
 
         <button
           className="language-toggle"
-          onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+          onClick={changeLanguage}
           aria-label={language === "en" ? "切换到中文" : "Switch to English"}
         >
           {t.language}
@@ -793,6 +849,8 @@ export default function Home() {
           </div>
         </section>
       ) : null}
+
+      {view === "seminars" ? <Seminars language={language} /> : null}
 
       {view === "cv" ? (
         <section className="inner-page page-shell">

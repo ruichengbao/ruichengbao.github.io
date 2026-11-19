@@ -2,18 +2,29 @@
 
 A bilingual English–Chinese academic website for Ruicheng Bao. English is the
 default language. The site includes About, selected and complete publications,
-Presentations, and CV views. A downloadable PDF CV and its TeX source are
+Presentations, Research Trajectories seminars, and CV views. A downloadable PDF CV and its TeX source are
 included in `public/cv/`.
 
 ## Edit content
 
-- `app/page.tsx` contains all bilingual copy and structured publication/event data.
+- `app/page.tsx` contains the homepage navigation and bilingual publication/presentation data.
+- `app/Seminars.tsx` contains the bilingual Research Trajectories introduction and programme.
 - `app/globals.css` contains the visual system and responsive layouts.
 - `app/layout.tsx` contains the site metadata used by the hosted application.
 - `cv/Ruicheng_Bao_CV.tex` is the editable CV source.
 
 Publication and event entries are plain TypeScript objects near the top of
 `app/page.tsx`, so routine updates do not require layout changes.
+
+### Research Trajectories
+
+Share `/seminars/` for English or `/seminars/?lang=zh` for Chinese. To announce a
+talk, add an entry to `talks` in `app/Seminars.tsx` and upload its poster PDF
+and WebP thumbnail to `github/public/seminars/`. Use the meeting's Beijing
+calendar date (`YYYY-MM-DD`); once confirmed, set `startsAt` to an ISO
+timestamp with its UTC offset. The page converts it to each city's local
+clock time for that date. A talk moves into the archive the day after it
+takes place. Add `recordingUrl` to its existing entry to show the replay link.
 
 ## GitHub Pages — automatic publishing
 
